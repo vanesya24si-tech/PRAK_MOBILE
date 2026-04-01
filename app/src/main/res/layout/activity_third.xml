@@ -6,8 +6,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
-    tools:context=".MainActivity">
+    android:background="@drawable/bg_app"
+    tools:context=".pertemuan_3.ThirdActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_app"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#73000000" />
 
     <ImageView
         android:id="@+id/imgIcon"
@@ -25,10 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-black"
         android:text="Kirim Nomor"
-        android:textColor="#2D3436"
+        android:textColor="#FFFFFF"
         android:textSize="28sp"
+        android:fontFamily="@font/robotomono_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgIcon" />
@@ -40,8 +53,9 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
+        app:cardElevation="8dp"
         app:strokeWidth="0dp"
+        app:cardBackgroundColor="#E6FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvJudul">
@@ -57,29 +71,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Nomor HP"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp"
                 app:startIconDrawable="@android:drawable/ic_menu_call">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNomor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:fontFamily="@font/robotomono_italic" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnKirim"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:text="Kirim Sekarang"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:backgroundTint="#0984E3"
-                app:cornerRadius="12dp" />
+                app:cornerRadius="12dp"
+                android:fontFamily="@font/robotomono_italic" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
