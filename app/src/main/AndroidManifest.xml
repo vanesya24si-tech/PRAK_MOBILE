@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/handphone"
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.DayNight.NoActionBar">
-<!---->
+<!--tes-->
         <activity
             android:name=".pertemuan_3.ThirdActivity"
             android:exported="true">
