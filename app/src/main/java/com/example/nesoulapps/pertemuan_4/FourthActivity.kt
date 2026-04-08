@@ -25,7 +25,7 @@ class FourthActivity : AppCompatActivity() {
         binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Log Lifecycle sesuai permintaanmu
+        // Log Lifecycle
         Log.e("onCreate", "FourthActivity dibuat pertama kali")
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
@@ -52,20 +52,31 @@ class FourthActivity : AppCompatActivity() {
 
         // Tombol Snackbar
         binding.btnShowSnackbar.setOnClickListener {
-            Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
+                .setAction("Tutup") {
+                    Log.e("Info Snackbar", "Snackbar ditutup")
+                }
+                .show()
         }
 
         // Tombol Alert Dialog
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(this)
-                .setTitle("Info")
-                .setMessage("Ini adalah Alert Dialog")
-                .setPositiveButton("OK", null)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Ya!")
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Tidak!")
+                }
                 .show()
         }
     }
 
-    // --- Tambahan Lifecycle sesuai permintaan ---
+    // --- Lifecycle Methods ---
 
     override fun onStart() {
         super.onStart()
