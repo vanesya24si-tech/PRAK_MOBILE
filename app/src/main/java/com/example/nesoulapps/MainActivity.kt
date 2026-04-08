@@ -1,40 +1,30 @@
 package com.example.nesoulapps
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.nesoulapps.databinding.ActivityMainBinding
+import com.example.nesoulapps.pertemuan_4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnKirim.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
 
-        // 1. Mengaktifkan fitur edge-to-edge (tampilan penuh hingga status bar)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
 
-        // 2. Menangani padding otomatis agar tidak tertutup Status Bar/Navigasi
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+            startActivity(intent)
 
-        // 3. Inisialisasi View & Logika
-        val etNomor = findViewById<EditText>(R.id.etNomor)
-        val btnKirim = findViewById<Button>(R.id.btnKirim)
 
-        btnKirim.setOnClickListener {
-            val nomor = etNomor.text.toString()
-            if (nomor.isNotEmpty()) {
-                Toast.makeText(this, "Mengirim ke: $nomor", Toast.LENGTH_SHORT).show()
-            } else {
-                etNomor.error = "Nomor tidak boleh kosong!"
-            }
+            finish()
         }
     }
 }
