@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -10,9 +11,11 @@
 
     <View
         android:id="@+id/viewHeader"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="180dp"
         android:background="#0984E3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -20,26 +23,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:fontFamily="sans-serif-black"
         android:text="UI Components"
         android:textColor="@color/white"
         android:textSize="26sp"
-        android:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pertemuan 4 - Praktikum Android"
         android:textColor="#D1D1D1"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardInteraction"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
@@ -47,6 +52,8 @@
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
         app:strokeWidth="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewHeader">
 
         <LinearLayout
@@ -58,21 +65,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:text="Interaksi User"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:textColor="#2D3436"
-                android:layout_marginBottom="16dp"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShowSnackbar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:backgroundTint="#0984E3"
                 android:text="Tampilkan Snackbar"
                 android:textAllCaps="false"
                 app:cornerRadius="16dp"
-                app:icon="@android:drawable/ic_dialog_info"
-                android:backgroundTint="#0984E3" />
+                app:icon="@android:drawable/ic_dialog_info" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShowAlertDialog"
@@ -82,11 +89,11 @@
                 android:layout_marginTop="16dp"
                 android:text="Tampilkan Alert Dialog"
                 android:textAllCaps="false"
-                app:cornerRadius="16dp"
-                app:strokeColor="#0984E3"
                 android:textColor="#0984E3"
+                app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_dialog_alert"
-                app:iconTint="#0984E3" />
+                app:iconTint="#0984E3"
+                app:strokeColor="#0984E3" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
