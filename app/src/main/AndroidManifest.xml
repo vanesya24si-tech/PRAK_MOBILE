@@ -25,6 +25,8 @@
 
         <activity android:name=".pertemuan_6.AuthActivity" android:exported="false" />
 
+        <activity android:name=".pertemuan7.MainActivityP7" android:exported="false" />
+
         <activity android:name=".pertemuan_6.MainActivity" android:exported="false" />
 
         <activity android:name=".pertemuan_4.FourthActivity" android:exported="false" />

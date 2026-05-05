@@ -1,15 +1,15 @@
-package com.example.nesoulapps.pertemuan_6 // Nama package baru
+package com.example.nesoulapps.pertemuan_6
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.content.edit
-import com.example.nesoulapps.R // Pastikan R mengarah ke package yang benar
+import com.example.nesoulapps.R
 import com.example.nesoulapps.databinding.ActivityAuthBinding
+import com.example.nesoulapps.pertemuan7.MainActivityP7
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class AuthActivity : AppCompatActivity() {
@@ -33,19 +33,19 @@ class AuthActivity : AppCompatActivity() {
             val inputNama = binding.inputNama.text.toString()
             val inputPassword = binding.inputpassword.text.toString()
 
-            // Perbaikan logika: Pastikan input tidak kosong
             if (inputNama.isNotEmpty() && inputNama == inputPassword) {
                 sharedPref.edit {
                     putBoolean("isLogin", true)
                     putString("username", inputNama)
                 }
-                val intent = Intent(this, MainActivity::class.java)
+                // Navigasi ke MainActivityP7 di folder pertemuan7
+                val intent = Intent(this, MainActivityP7::class.java)
                 startActivity(intent)
-                finish() // Tutup AuthActivity agar tidak bisa kembali dengan tombol back
+                finish()
             } else {
                 MaterialAlertDialogBuilder(this)
                     .setTitle("Login Gagal")
-                    .setMessage("Username atau password salah atau kosong!")
+                    .setMessage("Username atau password salah!")
                     .setPositiveButton("OK", null)
                     .show()
             }
