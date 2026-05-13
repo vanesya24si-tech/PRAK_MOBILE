@@ -3,6 +3,8 @@ package com.example.nesoulapps.pertemuan7
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.nesoulapps.Message.MessageFragment
+import com.example.nesoulapps.More.MoreFragment
 import com.example.nesoulapps.R
 import com.example.nesoulapps.databinding.ActivityMainP7Binding
 
@@ -26,6 +28,14 @@ class MainActivityP7 : AppCompatActivity() {
                 }
                 R.id.nav_dashboard -> {
                     loadFragment(DashboardFragment())
+                    true
+                }
+                R.id.nav_message -> {
+                    loadFragment(MessageFragment())
+                    true
+                }
+                R.id.nav_more -> {
+                    loadFragment(MoreFragment())
                     true
                 }
                 R.id.nav_profile -> {
