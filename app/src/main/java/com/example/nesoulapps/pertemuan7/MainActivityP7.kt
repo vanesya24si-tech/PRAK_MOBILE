@@ -3,6 +3,7 @@ package com.example.nesoulapps.pertemuan7
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.nesoulapps.Home.HomeFragment
 import com.example.nesoulapps.Message.MessageFragment
 import com.example.nesoulapps.More.MoreFragment
 import com.example.nesoulapps.R

@@ -14,6 +14,7 @@ import com.example.nesoulapps.pertemuan_4.FourthActivity
 import com.example.nesoulapps.pertemuan_5.FifthActivity
 import com.example.nesoulapps.MainActivity
 import com.example.nesoulapps.pertemuan_9.NinthActivity
+import com.example.nesoulapps.Home.pertemuan_10.TenthActivity
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -52,6 +53,9 @@ class HomeFragment : Fragment() {
         }
         binding.btnP9.setOnClickListener {
             startActivity(Intent(requireContext(), NinthActivity::class.java))
+        }
+        binding.btnP10.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
     }
 
