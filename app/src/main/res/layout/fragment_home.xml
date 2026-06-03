@@ -46,7 +46,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Profile Image (Muka Kamu Tetap Ada!) -->
+            <!-- Profile Image -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivProfile"
                 android:layout_width="100dp"
@@ -79,13 +79,49 @@
                 android:textColor="#636E72"
                 android:textSize="16sp" />
 
+            <!-- Cat Fact Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cat Fact of the Day"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#2D3436"/>
+                    <TextView
+                        android:id="@+id/tvFact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Loading fact..."
+                        android:textColor="#636E72"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRefresh"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="Refresh Fact" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <!-- Buttons List -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnP2"
                 style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="#FF85A1"
                 android:text="Pertemuan 2"
                 android:textColor="@color/white"
@@ -97,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#2D3436"
+                android:backgroundTint="#FF9AA2"
                 android:text="Pertemuan 3"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
@@ -108,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#FF85A1"
+                android:backgroundTint="#FFB7B2"
                 android:text="Pertemuan 4"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
@@ -119,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#FF85A1"
+                android:backgroundTint="#FFDAC1"
                 android:text="Pertemuan 5"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
@@ -130,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#FF85A1"
+                android:backgroundTint="#E2F0CB"
                 android:text="Pertemuan 6"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
@@ -141,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#FF85A1"
+                android:backgroundTint="#B5EAD7"
                 android:text="Pertemuan 9"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
@@ -156,6 +192,24 @@
                 android:text="Pertemuan 10"
                 android:textColor="@color/white"
                 app:cornerRadius="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_gravity="start"
+                android:text="Photo Gallery (Picsum)"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#2D3436"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_photo" />
 
             <!-- Space at the bottom -->
             <View

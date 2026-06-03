@@ -46,6 +46,15 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.tbuonomo:dotsindicator:5.1.0")
     
+    // Retrofit for REST API
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging)
+
+    // Lifecycle & Coroutines
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     // Glide for Image Loading
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.viewpager2)

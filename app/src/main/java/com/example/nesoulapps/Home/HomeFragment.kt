@@ -6,15 +6,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nesoulapps.Home.pertemuan_10.TenthActivity
+import com.example.nesoulapps.Home.photo.PhotoAdapter
+import com.example.nesoulapps.MainActivity
+import com.example.nesoulapps.data.api.PhotoApiClient
+import com.example.nesoulapps.data.api.RetrofitClient
+import com.example.nesoulapps.data.model.CatFactResponse
 import com.example.nesoulapps.databinding.FragmentHomeBinding
 import com.example.nesoulapps.pertemuan_2.SecondActivity
 import com.example.nesoulapps.pertemuan_3.ThirdActivity
 import com.example.nesoulapps.pertemuan_4.FourthActivity
 import com.example.nesoulapps.pertemuan_5.FifthActivity
-import com.example.nesoulapps.MainActivity
 import com.example.nesoulapps.pertemuan_9.NinthActivity
-import com.example.nesoulapps.Home.pertemuan_10.TenthActivity
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -56,6 +67,43 @@ class HomeFragment : Fragment() {
         }
         binding.btnP10.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
+        }
+
+        binding.btnRefresh.setOnClickListener {
+            loadFact()
+        }
+
+        loadFact()
+        loadPhoto()
+    }
+
+    private fun loadFact() {
+        binding.tvFact.text = "Loading fact..."
+        RetrofitClient.instance.getCatFact().enqueue(object : Callback<CatFactResponse> {
+            override fun onResponse(call: Call<CatFactResponse>, response: Response<CatFactResponse>) {
+                if (response.isSuccessful) {
+                    binding.tvFact.text = response.body()?.fact
+                } else {
+                    binding.tvFact.text = "Failed to load fact"
+                }
+            }
+
+            override fun onFailure(call: Call<CatFactResponse>, t: Throwable) {
+                binding.tvFact.text = "Error: ${t.message}"
+            }
+        })
+    }
+
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
