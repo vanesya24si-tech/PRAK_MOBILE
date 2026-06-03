@@ -1,10 +1,15 @@
 package com.example.nesoulapps.Message
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.nesoulapps.Message.tutorial.TutorialMessageActivity
+import com.example.nesoulapps.R
 import com.example.nesoulapps.databinding.FragmentMessageBinding
 
 class MessageFragment : Fragment() {
@@ -35,6 +40,37 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Debug: Pastikan fragment ini dimuat
+        Log.d("MessageFragment", "onViewCreated called")
+
+        // Konfigurasi Toolbar secara manual & paksa
+        binding.toolbar.title = "Message"
+        
+        // Pastikan menu bersih sebelum inflate
+        binding.toolbar.menu.clear()
+        binding.toolbar.inflateMenu(R.menu.message_toolbar_menu)
+
+        // Penanganan klik menu item
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            Log.d("MessageFragment", "Menu item clicked: ${item.itemId}")
+            
+            if (item.itemId == R.id.action_tutorial) {
+                // Tampilkan Toast: Jika ini muncul, berarti kode klik jalan!
+                Toast.makeText(requireContext(), "Membuka Tutorial...", Toast.LENGTH_SHORT).show()
+                
+                try {
+                    val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Log.e("MessageFragment", "Gagal membuka activity: ${e.message}")
+                    Toast.makeText(requireContext(), "Gagal membuka tutorial", Toast.LENGTH_LONG).show()
+                }
+                true
+            } else {
+                false
+            }
+        }
+
         val adapter = MessageAdapter(requireContext(), messageList)
         binding.listMessageItems.adapter = adapter
     }

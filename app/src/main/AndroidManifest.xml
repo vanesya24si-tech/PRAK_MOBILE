@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Message.tutorial.TutorialMessageActivity" android:exported="false" />
         <activity android:name=".Home.pertemuan_10.TenthActivity" android:exported="false" />
         <activity android:name=".pertemuan_9.NinthActivity" android:exported="false" />
         <activity android:name=".pertemuan_6.AuthActivity" android:exported="false" />
