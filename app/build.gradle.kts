@@ -4,14 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.nesoulapps"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.nesoulapps"
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -59,6 +57,17 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.viewpager2)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
+    // ZXing for QR Code
+    implementation(libs.zxing)
+
+    // CameraX
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+
+    // ML Kit for QR code
+    implementation(libs.mlkit.barcode.scanning)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

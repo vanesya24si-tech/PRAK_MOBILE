@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nesoulapps.Home.pertemuan_10.TenthActivity
+import com.example.nesoulapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.nesoulapps.Home.photo.PhotoAdapter
 import com.example.nesoulapps.MainActivity
 import com.example.nesoulapps.data.api.PhotoApiClient
@@ -67,6 +68,9 @@ class HomeFragment : Fragment() {
         }
         binding.btnP10.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
+        }
+        binding.btnP13.setOnClickListener {
+            startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
         }
 
         binding.btnRefresh.setOnClickListener {
